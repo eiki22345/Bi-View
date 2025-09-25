@@ -13,7 +13,7 @@ class PostController extends Controller
     public function index()
     {
         // @intelephense-ignore-next-line
-        $posts = Auth::user()->posts()->orderby('created_at', 'asc')->get();
+        $posts = Auth::user()->posts()->orderby('updated_at', 'asc')->get();
 
         return view('auth.posts.index', compact('posts'));
     }
