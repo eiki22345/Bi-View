@@ -75,6 +75,8 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
+        $product = Product::withAvg('reviews', 'score')->find($product->id);
+
         $reviews = $product->reviews()->get();
 
         return view('products.show', compact('product', 'reviews'));

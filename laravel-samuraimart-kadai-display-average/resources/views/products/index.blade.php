@@ -40,7 +40,7 @@
             <div class="col-12">
               <p class="samuraimart-product-label mt-2">
                 {{$product->name}}<br>
-                <spna class="star-rating" style="--rating: {{ $product->reviews_avg_score ?? 0}}"></spna>
+                <span class="star-rating" style="--rating: {{ $product->reviews_avg_score ?? 0}}"></span>
                 {{ number_format($product->reviews_avg_score ?? 0, 1 )}}<br>
                 <label>￥{{$product->price}}</label>
               </p>

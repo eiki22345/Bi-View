@@ -17,6 +17,8 @@
         <h1 class="">
           {{ $product->name }}
         </h1>
+        <span class="star-rating" style="--rating: {{ $product->reviews_avg_score ?? 0}}"></span>
+        {{ number_format($product->reviews_avg_score ?? 0, 1 )}}<br>
         <p class="">
           {{ $product->description}}
         </p>
@@ -76,6 +78,8 @@
     <div class="offset-1 col-11">
       <hr class="w-100">
       <h3 class="float-left">カスタマーレビュー</h3>
+      <span class="star-rating" style="--rating: {{ $product->reviews_avg_score ?? 0}}"></span>
+      {{ number_format($product->reviews_avg_score ?? 0, 1 )}}<br>
     </div>
 
     <div class="offset-1 col-10">
