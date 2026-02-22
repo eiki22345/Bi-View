@@ -6,13 +6,30 @@
   box-shadow: -3px 0 8px rgba(0, 0, 0, 0.08), 3px 0 8px rgba(0, 0, 0, 0.08);
 }
 
+.header-img-container {
+  width: 95%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.header-img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
 .filter-bar {
+  width: 95%;
+  margin: 0 auto;
   background-color: #fff;
   padding: 8px 4px;
   border-bottom: 1px solid #e0e0e0;
 }
 
 .post-card {
+  width: 95%;
+  margin-left: auto !important;
+  margin-right: auto !important;
   border: none;
   border-top: 1px solid #e0e0e0;
   border-bottom: 1px solid #e0e0e0;
@@ -103,8 +120,8 @@
 }
 
 .theme-images-wrapper {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  width: 95%;
+  margin: 1rem auto;
   background-color: #f5f7ff;
   box-shadow: -3px 0 8px rgba(0, 0, 0, 0.08), 3px 0 8px rgba(0, 0, 0, 0.08);
 }
