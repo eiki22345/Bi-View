@@ -63,7 +63,7 @@
 
         <!-- 投稿一覧 -->
         @forelse($posts as $post)
-        <div class="card post-card mb-3">
+        <div class="card post-card">
           <div class="card-body">
             <div class="post-header d-flex justify-content-between">
               <div>
