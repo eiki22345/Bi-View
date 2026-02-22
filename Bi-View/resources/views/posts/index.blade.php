@@ -38,7 +38,13 @@
       </div>
       @endif
       <div class="post-footer">
-        <span class="post-action">❤️ {{ $post->likes->count() }}</span>
+        <button type="button" class="like-btn" data-url="{{ route('posts.toggleLike', $post) }}">
+          <img src="{{ $post->likes->contains('user_id', Auth::id()) ? asset('img/material/good-mami.png') : asset('img/material/no-mami.png') }}"
+            alt="いいね" class="like-img"
+            data-good="{{ asset('img/material/good-mami.png') }}"
+            data-no="{{ asset('img/material/no-mami.png') }}">
+          <span class="like-count">{{ $post->likes->count() }}</span>
+        </button>
       </div>
     </div>
   </div>
@@ -112,3 +118,7 @@
 
 </div>
 @endsection
+
+@push('scripts')
+<script src="{{ asset('js/like.js') }}"></script>
+@endpush

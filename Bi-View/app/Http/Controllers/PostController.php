@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\PostLike;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -34,5 +35,26 @@ class PostController extends Controller
     ]);
 
     return redirect()->route('posts.index')->with('success', '投稿しました！');
+  }
+
+  public function toggleLike(Post $post)
+  {
+    $like = PostLike::where('user_id', Auth::id())->where('post_id', $post->id)->first();
+
+    if ($like) {
+      $like->delete();
+      $liked = false;
+    } else {
+      PostLike::create([
+        'user_id' => Auth::id(),
+        'post_id' => $post->id,
+      ]);
+      $liked = true;
+    }
+
+    return response()->json([
+      'is_liked'    => $liked,
+      'likes_count' => $post->likes()->count(),
+    ]);
   }
 }

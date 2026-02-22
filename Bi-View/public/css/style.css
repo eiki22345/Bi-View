@@ -75,9 +75,25 @@
   gap: 16px;
 }
 
-.post-action {
-  color: #666;
+.like-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+}
+
+.like-img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.like-count {
   font-size: 0.9rem;
+  color: #666;
 }
 
 .theme-images-wrapper {
@@ -100,9 +116,10 @@
 }
 
 .create-btn {
-  position: absolute;
-  bottom: 16px;
-  right: 16px;
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
 }
 
 .create-img {
