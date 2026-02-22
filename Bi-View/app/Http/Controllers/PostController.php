@@ -31,7 +31,20 @@ class PostController extends Controller
 
     $posts = $query->get();
 
-    return view('posts.index', compact('categories', 'posts', 'sort', 'categoryId'));
+    // カテゴリ別いいね数ランキング（各カテゴリ上位3件）
+    $rankingByCategory = $categories->map(function ($cat) {
+      return [
+        'category' => $cat,
+        'posts'    => Post::with('likes')
+          ->where('category_id', $cat->id)
+          ->withCount('likes')
+          ->orderByDesc('likes_count')
+          ->limit(3)
+          ->get(),
+      ];
+    });
+
+    return view('posts.index', compact('categories', 'posts', 'sort', 'categoryId', 'rankingByCategory'));
   }
 
   public function store(Request $request)

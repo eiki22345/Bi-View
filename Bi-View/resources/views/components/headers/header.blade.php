@@ -1,4 +1,4 @@
-<div class="col-md-8 header-img-container mx-auto">
+<div class="w-100 header-img-container">
   <div>
     <img src="{{ asset('img/material/header.jpg') }}" class="w-100 header-img">
   </div>
