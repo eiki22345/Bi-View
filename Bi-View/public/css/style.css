@@ -131,3 +131,9 @@
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
 }
+/* SweetAlert2 いいねポップアップ */
+.like-alert-popup {
+  box-shadow: none !important;
+  padding: 16px !important;
+  border-radius: 16px !important;
+}

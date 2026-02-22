@@ -10,11 +10,28 @@ use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
-  public function index()
+  public function index(Request $request)
   {
     $categories = Category::where('is_active', true)->get();
-    $posts = Post::with(['user', 'category', 'likes'])->latest()->get();
-    return view('posts.index', compact('categories', 'posts'));
+
+    $sort        = $request->query('sort', 'new');        // new | popular
+    $categoryId  = $request->query('category_id');        // null | id
+
+    $query = Post::with(['user', 'category', 'likes']);
+
+    if ($categoryId) {
+      $query->where('category_id', $categoryId);
+    }
+
+    if ($sort === 'popular') {
+      $query->withCount('likes')->orderByDesc('likes_count');
+    } else {
+      $query->latest();
+    }
+
+    $posts = $query->get();
+
+    return view('posts.index', compact('categories', 'posts', 'sort', 'categoryId'));
   }
 
   public function store(Request $request)

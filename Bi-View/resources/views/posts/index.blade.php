@@ -18,6 +18,37 @@
 
 <div class="col-md-8 mx-auto posts-container">
 
+  <!-- フィルタ・ソートバー -->
+  <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 px-1 gap-2">
+
+    <!-- カテゴリフィルタ -->
+    <div class="d-flex flex-wrap gap-1">
+      <a href="{{ route('posts.index', ['sort' => $sort]) }}"
+        class="btn btn-sm {{ is_null($categoryId) ? 'btn-dark' : 'btn-outline-dark' }}">
+        すべて
+      </a>
+      @foreach($categories as $cat)
+      <a href="{{ route('posts.index', ['sort' => $sort, 'category_id' => $cat->id]) }}"
+        class="btn btn-sm {{ $categoryId == $cat->id ? 'btn-dark' : 'btn-outline-dark' }}">
+        {{ $cat->type === 'pro' ? '🔥' : '🐤' }} {{ $cat->name }}
+      </a>
+      @endforeach
+    </div>
+
+    <!-- ソート -->
+    <div class="btn-group btn-group-sm">
+      <a href="{{ route('posts.index', array_filter(['sort' => 'new', 'category_id' => $categoryId])) }}"
+        class="btn {{ $sort === 'new' ? 'btn-primary' : 'btn-outline-primary' }}">
+        新着
+      </a>
+      <a href="{{ route('posts.index', array_filter(['sort' => 'popular', 'category_id' => $categoryId])) }}"
+        class="btn {{ $sort === 'popular' ? 'btn-primary' : 'btn-outline-primary' }}">
+        人気
+      </a>
+    </div>
+
+  </div>
+
   <!-- 投稿一覧 -->
   @forelse($posts as $post)
   <div class="card post-card mb-3">
@@ -42,7 +73,8 @@
           <img src="{{ $post->likes->contains('user_id', Auth::id()) ? asset('img/material/good-mami.png') : asset('img/material/no-mami.png') }}"
             alt="いいね" class="like-img"
             data-good="{{ asset('img/material/good-mami.png') }}"
-            data-no="{{ asset('img/material/no-mami.png') }}">
+            data-no="{{ asset('img/material/no-mami.png') }}"
+            data-good-alert="{{ asset('img/material/good-alert.png') }}">
           <span class="like-count">{{ $post->likes->count() }}</span>
         </button>
       </div>
