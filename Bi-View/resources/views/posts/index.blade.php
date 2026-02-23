@@ -20,10 +20,22 @@
       <div class="theme-images-wrapper">
         <div class="row g-3 justify-content-center">
           <div class="col-6 p-0">
-            <img src="{{ asset('img/categories/snowland.png') }}" alt="スノーランドの軌跡" class="theme-image theme-image-shadow">
+            <div class="theme-label">
+              <img src="{{ asset('img/material/difficulty-level.png') }}" alt="" class="theme-label-icon">
+              <span>初心者コース</span>
+            </div>
+            <img src="{{ asset('img/categories/snowland.png') }}" alt="スノーランドの軌跡" class="theme-image theme-image-shadow theme-image-btn"
+              data-category-id="{{ $categories->firstWhere('type', 'everyone')?->id ?? '' }}"
+              data-bs-toggle="modal" data-bs-target="#createPostModal" role="button">
           </div>
           <div class="col-6 p-0">
-            <img src="{{ asset('img/categories/chiken.png') }}" alt="あつあつ！美唄焼き鳥" class="theme-image theme-image-shadow">
+            <div class="theme-label">
+              <img src="{{ asset('img/material/difficulty-level.png') }}" alt="" class="theme-label-icon">
+              <span>プロコース</span>
+            </div>
+            <img src="{{ asset('img/categories/chiken.png') }}" alt="あつあつ！美唄焼き鳥" class="theme-image theme-image-shadow theme-image-btn"
+              data-category-id="{{ $categories->firstWhere('type', 'pro')?->id ?? '' }}"
+              data-bs-toggle="modal" data-bs-target="#createPostModal" role="button">
           </div>
         </div>
       </div>
@@ -168,6 +180,21 @@
 
   </div><!-- /row -->
 </div><!-- /container-fluid -->
+
+@push('scripts')
+<script>
+  document.querySelectorAll('.theme-image-btn').forEach(function(img) {
+    img.addEventListener('click', function() {
+      var categoryId = this.dataset.categoryId;
+      var select = document.getElementById('category_id');
+      if (select && categoryId) {
+        select.value = categoryId;
+      }
+    });
+  });
+</script>
+@endpush
+
 @endsection
 
 @push('scripts')

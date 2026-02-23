@@ -8,12 +8,42 @@
   width: 95%;
   margin: 0 auto;
   overflow: hidden;
+  position: relative;
+}
+
+.header-logout-form {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  margin: 0;
+}
+
+.header-logout-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  font-size: 1rem;
+  color: #555;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.header-logout-btn:hover {
+  background: #dc3545;
+  color: #fff;
+  border-color: #dc3545;
 }
 
 .header-img {
   display: block;
   width: 100%;
   object-fit: cover;
+  max-height: 120px;
 }
 
 .filter-bar {
@@ -120,6 +150,23 @@
   color: #666;
 }
 
+.theme-label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 4px;
+  padding-left: 18px;
+}
+
+.theme-label-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
 .theme-images-wrapper {
   width: 95%;
   margin: 6px auto 0 auto;
@@ -137,6 +184,15 @@
 
 .theme-image-shadow {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+}
+
+.theme-image-btn {
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.theme-image-btn:hover {
+  opacity: 0.85;
 }
 
 .create-btn {
@@ -198,6 +254,44 @@
   padding: 4px 0;
   margin-bottom: 10px;
   letter-spacing: 0.05em;
+}
+
+.ranking-title-img {
+  display: block;
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  object-fit: contain;
+}
+
+.sidebar-btn {
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.sidebar-btn:hover {
+  opacity: 0.8;
+}
+
+.sidebar-logout-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  padding: 4px 0;
+  font-size: 1rem;
+  color: #555;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.sidebar-logout-btn:hover {
+  background: #dc3545;
+  color: #fff;
+  border-color: #dc3545;
 }
 
 .ranking-category-block {
@@ -277,4 +371,17 @@
 
 .ranking-thumb-empty {
   background: #ddd;
+}
+
+.bibai-banner-img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  display: block;
+  object-fit: cover;
+  transition: opacity 0.2s;
+}
+
+.bibai-banner-img:hover {
+  opacity: 0.85;
 }

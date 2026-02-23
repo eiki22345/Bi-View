@@ -1,7 +1,10 @@
 @props(['rankingByCategory'])
 
 <div class="ranking-sidebar">
-  <div class="ranking-title">ランキング</div>
+  <!-- おすすめ美唄ボタン -->
+  <img src="{{ asset('img/material/yakitorio.png') }}" alt="おすすめ美唄" class="ranking-title-img sidebar-btn mb-2" data-bs-toggle="modal" data-bs-target="#bibaiInfoModal" role="button">
+
+  <img src="{{ asset('img/material/rank.png') }}" alt="ランキング" class="ranking-title-img">
 
   @foreach($rankingByCategory as $item)
   <div class="ranking-category-block">
@@ -49,6 +52,46 @@
         <div class="d-flex align-items-center gap-1">
           <img src="{{ asset('img/material/good-mami.png') }}" alt="いいね" style="width:28px;height:28px;object-fit:contain;">
           <span id="rankingModalLikes" class="fw-bold"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- おすすめ美唄モーダル -->
+<div class="modal fade" id="bibaiInfoModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold">🍗 美唄の魅力</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body p-3">
+        <div class="row g-2">
+          <div class="col-6">
+            <a href="https://www.artepiazza.jp/"><img src="{{ asset('img/banners/artmuseums.png') }}" alt="美術館" class="bibai-banner-img"></a>
+          </div>
+          <div class="col-6">
+            <a href="http://www.net-bibai.co.jp/furusato_oendan/"><img src="{{ asset('img/banners/cheering-squad.png') }}" alt="応援団" class="bibai-banner-img"></a>
+          </div>
+          <div class="col-6">
+            <a href="https://www.city.bibai.hokkaido.jp/soshiki/13/417.html"><img src="{{ asset('img/banners/data-center.png') }}" alt="データセンター" class="bibai-banner-img"></a>
+          </div>
+          <div class="col-6">
+            <a href="https://www.city.bibai.hokkaido.jp/soshiki/13/7556.html"><img src="{{ asset('img/banners/enterprises.png') }}" alt="企業誘致" class="bibai-banner-img"></a>
+          </div>
+          <div class="col-6">
+            <a href="https://www.city.bibai.hokkaido.jp/soshiki/3/13934.html"><img src="{{ asset('img/banners/hometown-tax-payment.png') }}" alt="ふるさと納税" class="bibai-banner-img"></a>
+          </div>
+          <div class="col-6">
+            <a href="https://cdn.discordapp.com/attachments/1474902022909071463/1475306569087324202/bnr_miyajimanuma.png?ex=699d01cf&is=699bb04f&hm=f7e29ff4141073916c9feac212bfdf07a6a49cada1372802b93635f96f52a20e&"><img src="{{ asset('img/banners/miyazimanuma.png') }}" alt="宮島沼" class="bibai-banner-img"></a>
+          </div>
+          <div class="col-6">
+            <a href="https://www.city.bibai.hokkaido.jp/site/ijuu/"><img src="{{ asset('img/banners/move.png') }}" alt="移住" class="bibai-banner-img"></a>
+          </div>
+          <div class="col-6">
+            <a href="https://www.city.bibai.hokkaido.jp/soshiki/3/13934.html"><img src="{{ asset('img/banners/song-town.png') }}" alt="うたのまち" class="bibai-banner-img"></a>
+          </div>
         </div>
       </div>
     </div>
