@@ -7,22 +7,22 @@
   <div class="row g-0 two-col-layout">
 
     <!-- 左サイド：ランキング -->
-    <div class="col-2 ranking-col">
+    <div class="col-1 ranking-col">
       <x-posts.ranking :rankingByCategory="$rankingByCategory" />
     </div>
 
     <!-- 右：ヘッダー + テーマ画像 + 投稿一覧 -->
-    <div class="col-md-8 posts-col">
+    <div class="col-9 posts-col">
 
       <x-headers.header />
 
       <!-- 今月のテーマ画像 -->
       <div class="theme-images-wrapper">
         <div class="row g-3 justify-content-center">
-          <div class="col-md-6 p-0">
+          <div class="col-6 p-0">
             <img src="{{ asset('img/categories/snowland.png') }}" alt="スノーランドの軌跡" class="theme-image theme-image-shadow">
           </div>
-          <div class="col-md-6 p-0">
+          <div class="col-6 p-0">
             <img src="{{ asset('img/categories/chiken.png') }}" alt="あつあつ！美唄焼き鳥" class="theme-image theme-image-shadow">
           </div>
         </div>
@@ -161,10 +161,10 @@
         </div>
 
       </div><!-- /posts-container -->
-    </div><!-- /col-md-8 -->
+    </div><!-- /col-9 -->
 
     <!-- 右：空白 col-2 -->
-    <div class="col-md-2 d-none d-md-block"></div>
+    <div class="col-2"></div>
 
   </div><!-- /row -->
 </div><!-- /container-fluid -->

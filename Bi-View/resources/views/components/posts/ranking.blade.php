@@ -10,7 +10,7 @@
     </div>
 
     @foreach($item['posts'] as $index => $post)
-    <div class="ranking-item"
+    <div class="ranking-item ranking-item-{{ $index + 1 }}"
       data-bs-toggle="modal"
       data-bs-target="#rankingPostModal"
       data-image="{{ $post->image_path ? asset('storage/' . $post->image_path) : '' }}"
