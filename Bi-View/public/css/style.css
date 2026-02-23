@@ -385,3 +385,30 @@
 .bibai-banner-img:hover {
   opacity: 0.85;
 }
+
+.right-banner-col {
+  height: 100%;
+  overflow-y: auto;
+  border-left: 3px solid #d0d0d0;
+}
+
+.right-banner-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 6px 4px;
+}
+
+.right-banner-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  object-fit: contain;
+  margin: 0 auto;
+  transition: opacity 0.2s;
+}
+
+.right-banner-img:hover {
+  opacity: 0.85;
+}

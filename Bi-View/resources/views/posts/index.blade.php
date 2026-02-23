@@ -7,12 +7,12 @@
   <div class="row g-0 two-col-layout">
 
     <!-- 左サイド：ランキング -->
-    <div class="col-1 ranking-col">
+    <div class="col-2 col-md-1 ranking-col">
       <x-posts.ranking :rankingByCategory="$rankingByCategory" />
     </div>
 
     <!-- 右：ヘッダー + テーマ画像 + 投稿一覧 -->
-    <div class="col-9 posts-col">
+    <div class="col-10 col-md-9 posts-col">
 
       <x-headers.header />
 
@@ -24,8 +24,8 @@
               <img src="{{ asset('img/material/difficulty-level.png') }}" alt="" class="theme-label-icon">
               <span>初心者コース</span>
             </div>
-            <img src="{{ asset('img/categories/snowland.png') }}" alt="スノーランドの軌跡" class="theme-image theme-image-shadow theme-image-btn"
-              data-category-id="{{ $categories->firstWhere('type', 'everyone')?->id ?? '' }}"
+            <img src="{{ asset('img/categories/chiken.png') }}" alt="あつあつ！美唄焼き鳥" class="theme-image theme-image-shadow theme-image-btn"
+              data-category-id="{{ $categories->firstWhere('type', 'pro')?->id ?? '' }}"
               data-bs-toggle="modal" data-bs-target="#createPostModal" role="button">
           </div>
           <div class="col-6 p-0">
@@ -33,8 +33,8 @@
               <img src="{{ asset('img/material/difficulty-level.png') }}" alt="" class="theme-label-icon">
               <span>プロコース</span>
             </div>
-            <img src="{{ asset('img/categories/chiken.png') }}" alt="あつあつ！美唄焼き鳥" class="theme-image theme-image-shadow theme-image-btn"
-              data-category-id="{{ $categories->firstWhere('type', 'pro')?->id ?? '' }}"
+            <img src="{{ asset('img/categories/snowland.png') }}" alt="スノーランドの軌跡" class="theme-image theme-image-shadow theme-image-btn"
+              data-category-id="{{ $categories->firstWhere('type', 'everyone')?->id ?? '' }}"
               data-bs-toggle="modal" data-bs-target="#createPostModal" role="button">
           </div>
         </div>
@@ -175,8 +175,16 @@
       </div><!-- /posts-container -->
     </div><!-- /col-9 -->
 
-    <!-- 右：空白 col-2 -->
-    <div class="col-2"></div>
+    <!-- 右：バナー col-md-2 -->
+    <div class="d-none d-md-block col-md-2 right-banner-col">
+      <div class="right-banner-list">
+        <a href="#"><img src="{{ asset('img/right-banner/line.png') }}" alt="LINE" class="right-banner-img"></a>
+        <a href="#"><img src="{{ asset('img/right-banner/x.png') }}" alt="X" class="right-banner-img"></a>
+        <a href="#"><img src="{{ asset('img/right-banner/youtube.png') }}" alt="YouTube" class="right-banner-img"></a>
+        <a href="#"><img src="{{ asset('img/right-banner/nursery-school.png') }}" alt="保育園" class="right-banner-img"></a>
+        <a href="#"><img src="{{ asset('img/right-banner/region.png') }}" alt="地域" class="right-banner-img"></a>
+      </div>
+    </div>
 
   </div><!-- /row -->
 </div><!-- /container-fluid -->
